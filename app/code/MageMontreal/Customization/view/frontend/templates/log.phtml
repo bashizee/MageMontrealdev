@@ -1,0 +1,26 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+
+<script type="text/javascript">
+    require(["jquery"],function($) {
+        $(document).ready(function() {
+            var customurl = "<?php echo $block->escapeUrl($block->getUrl('magelog')) ?>";
+            $.getJSON("https://jsonip.com?callback=?", function(data) {
+                $.ajax({
+                    url: customurl,
+                    type: 'GET',
+                    data: {
+                        title:document.title,
+                        url: window.location.href,
+                        clientIp: data.ip
+                    },
+                    cache: false,
+                    success: function(response){
+                        console.log("Logged");
+                    }
+                });
+            });
+        });
+    });
+</script>

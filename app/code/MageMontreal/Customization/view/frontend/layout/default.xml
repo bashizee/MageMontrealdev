@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Magemontreal
+ * @package   Magemontreal_Customization
+ * @author    Bashid <imbashid@gmail.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="top.links">
+            <block name="my-orders-link-custom" template="MageMontreal_Customization::myOrderLink.phtml"  after="my-account-link">
+                <arguments>
+                    <argument name="view_model"
+                              xsi:type="object">MageMontreal\Customization\ViewModel\MyOrders</argument>
+                    <argument name="sortOrder" xsi:type="number">66</argument>
+                </arguments>
+            </block>
+            <block name="log-visitor" template="MageMontreal_Customization::log.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" after="logo" template="Magento_Newsletter::subscribe.phtml" ifconfig="newsletter/general/active"/>
+        </referenceContainer>
+        <referenceContainer name="footer" remove="true"/>
+    </body>
+</page>

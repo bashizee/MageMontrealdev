@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Magemontreal
+ * @package   Magemontreal_Customization
+ * @author    Bashid <imbashid@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="magelog" frontName="magelog">
+            <module name="MageMontreal_Customization" />
+        </route>
+    </router>
+</config>

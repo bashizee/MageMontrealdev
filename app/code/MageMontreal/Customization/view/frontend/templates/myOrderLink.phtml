@@ -1,0 +1,15 @@
+<?php
+/** @var \MageMontreal\Customization\ViewModel\MyOrders $viewModel */
+/** @var \Magento\Framework\View\Element\Template $block */
+
+$viewModel = $block->getData('view_model');
+$orderCount = $viewModel->getOrderCount();
+?>
+
+<?php if ($viewModel->getIsLoggedIn()): ?>
+    <li class="my-orders-link">
+        <a href="<?php echo $block->escapeUrl($block->getUrl('sales/order/history')) ?>">
+            <?php echo $orderCount ? __('My Orders: ') . $viewModel->getOrderCount() : __('My Orders') ?>
+        </a>
+    </li>
+<?php endif; ?>
